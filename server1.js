@@ -1,11 +1,12 @@
 const express = require('express')
-const serveStatic = require('serve-static')
-const path = require('path')
+
 const app = express()
 
-const serveMiddleware = serveStatic(path.resolve(__dirname,'static'))
+//const serveMiddleware = serveStatic(path.resolve(__dirname,'static'))
 
-app.use('/assets', serveMiddleware)
+app.use('/assets',express.static('./static'))
+//app.use('/assets', serveMiddleware)
+
 
 function handlerSearch(request,response){
     response.send(request.query.v)
